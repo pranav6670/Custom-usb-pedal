@@ -4,7 +4,7 @@ from pynput.keyboard import Key, Controller
 import serial.tools.list_ports
 import eel
 
-# eel.init('web')
+eel.init('web')
 
 keyboard = Controller()
 ports = list(serial.tools.list_ports.comports())
@@ -50,4 +50,4 @@ else:
 board = pyfirmata.Arduino(str(a[0].device))
 execute(board, 7)
 
-# eel.start('index.html', size=(400, 400))
+eel.start('index.html', size=(400, 400))
