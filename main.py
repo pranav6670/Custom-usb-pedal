@@ -11,30 +11,17 @@ keyboard = Controller()
 ports = list(serial.tools.list_ports.comports())
 
 
-def detect_ports():
+def check_hw():
     arduino_ports = []
+    ack = 0
     for p in ports:
         if 'Arduino' in p.description:
             arduino_ports.append(p)
-
-    return arduino_ports
-
-
-a = detect_ports()
-
-
-def check_hw():
-    ack = 0
-    if a:
+    if arduino_ports:
         ack = 1
-        print(ack)
-        print("Board found")
-        print(a[0].device)
-        board = pyfirmata.Arduino(str(a[0].device))
     else:
         ack = 2
-        print("No arduino found")
-        print(ack)
+    return ack, arduino_ports[0].device
 
 
 def execute(board, pin):
@@ -47,14 +34,18 @@ def execute(board, pin):
         sw = board.digital[pin].read()
         if sw is True:
             board.digital[13].write(1)
-            keyboard.press('b')
+            keyboard.press(Key.space)
             print("Pressed")
         else:
             board.digital[13].write(0)
-            keyboard.release('b')
+            keyboard.release(Key.space)
         time.sleep(0.1)
 
 
+def go():
+    ack, device = check_hw()
+    board = pyfirmata.Arduino(str(device))
+    execute(board, 7)
+
 
 eel.start('index.html', size=(330, 300))
-
