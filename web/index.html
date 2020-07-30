@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>Cheeky's custom pedal</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"/>
-  <script type="text/javascript" src="/eel.js"></script>
-  <script type="text/javascript" src="main.js"></script>
-  <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8" />
+        <title>Cheeky's custom pedal</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
+        <script type="text/javascript" src="/eel.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+        <link rel="stylesheet" href="style.css" />
 </head>
 
-
 <body>
-        <section >
-                <h1 style="font-size: xx-large">Custom USB Pedal</h1>
+        <section>
+                <h1 style="font-size: xx-large; text-align: center; color: black;">Custom USB Pedal</h1>
+
+                <button style="position: absolute; left: 100px; top: 100px;" id="check"
+                        class="button is-medium is-success">
+                        Check for H/W
+                </button>
+
+                <button style="position: absolute; left: 250px; top: 202px;" id="map" class="button is-medium is-dark">
+                        Map
+                </button>
+               
         </section>
-        <button onclick="test()" style="position: absolute; left: 100px; top: 200px;" id="check"
-                class="button is-medium is-warning">Map</button>
-        <button style="position: absolute; left: 200px; top: 200px;" id="" class="button is-medium is-dark">Test</button>
 
-
+        <input id="input" style="position: absolute; top: 200px; left: 40px;" class="input input is-rounded" type="text"
+                placeholder="Enter key to be mapped" />
 
 
 </body>

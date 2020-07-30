@@ -4,7 +4,8 @@ from pynput.keyboard import Key, Controller
 import serial.tools.list_ports
 import eel
 
-# eel.init('web')
+eel.init('web')
+
 
 keyboard = Controller()
 ports = list(serial.tools.list_ports.comports())
@@ -15,10 +16,25 @@ def detect_ports():
     for p in ports:
         if 'Arduino' in p.description:
             arduino_ports.append(p)
-    if len(arduino_ports) == 0:
-        print("no Arduino board detected")
 
     return arduino_ports
+
+
+a = detect_ports()
+
+
+def check_hw():
+    ack = 0
+    if a:
+        ack = 1
+        print(ack)
+        print("Board found")
+        print(a[0].device)
+        board = pyfirmata.Arduino(str(a[0].device))
+    else:
+        ack = 2
+        print("No arduino found")
+        print(ack)
 
 
 def execute(board, pin):
@@ -39,14 +55,6 @@ def execute(board, pin):
         time.sleep(0.1)
 
 
-a = detect_ports()
 
-if a:
-    print("Board found")
-    print(a[0].device)
-    board = pyfirmata.Arduino(str(a[0].device))
-    execute(board, 7)
-else:
-    print("No arduino found")
+eel.start('index.html', size=(330, 300))
 
-eel.start('index.html', size=(400, 400))
