@@ -18,9 +18,12 @@ def check_hw():
             arduino_ports.append(p)
     if arduino_ports:
         ack = 1
-    else:
+    elif not arduino_ports:
         ack = 2
-    return ack, arduino_ports[0].device
+    else:
+        print("Dont come here")
+    # eel.show(ack)
+    return ack, arduino_ports
 
 
 @eel.expose
@@ -50,3 +53,4 @@ def go():
 
 
 eel.start('index.html', size=(330, 300))
+
