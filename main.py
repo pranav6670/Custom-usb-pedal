@@ -5,11 +5,12 @@ import serial.tools.list_ports
 import eel
 
 eel.init('web')
+# eel.start('index.html', size=(330, 300))
+
 keyboard = Controller()
 ports = list(serial.tools.list_ports.comports())
 
 
-@eel.expose
 def check_hw():
     arduino_ports = []
     ack = 0
@@ -22,11 +23,9 @@ def check_hw():
         ack = 2
     else:
         print("Dont come here")
-    # eel.show(ack)
     return ack, arduino_ports
 
 
-@eel.expose
 def execute(board, pin):
     it = pyfirmata.util.Iterator(board)
     it.start()
@@ -45,12 +44,9 @@ def execute(board, pin):
         time.sleep(0.1)
 
 
-@eel.expose
 def go():
-    ack, device = check_hw()
-    board = pyfirmata.Arduino(str(device))
+    ack, dev = check_hw()
+    board = pyfirmata.Arduino(str(dev[0].device))
     execute(board, 7)
 
-
-eel.start('index.html', size=(330, 300))
 
