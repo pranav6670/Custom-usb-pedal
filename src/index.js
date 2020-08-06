@@ -1,8 +1,11 @@
 const electron = require('electron')
 const path = require('path')
 const BrowserWindow =  electron.remote.BrowserWindow
+const ipc = electron.ipcRenderer;
+
 
 const map = document.getElementById('map')
+var mapped = document.getElementById('mapped')
 
 map.addEventListener('click', function(event){
 
@@ -20,3 +23,6 @@ map.addEventListener('click', function(event){
     win.show()
 })
 
+ipc.on('updateValue', function(event, arg) {       
+   mapped.innerHTML = "Mapped key is: " + arg;
+}); 

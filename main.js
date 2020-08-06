@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron') 
+const ipcMain = require('electron').ipcMain
 
 let win; 
 
@@ -45,3 +46,8 @@ if (BrowserWindow.getAllWindows().length === 0) {
 	createWindow() 
 } 
 }) 
+
+ipcMain.on('update-value', function (event, arg) { 
+  console.log(arg); 
+  win.webContents.send('updateValue', arg); 
+}); 
