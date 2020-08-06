@@ -4,10 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Cheeky's custom pedal</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"/>
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -15,7 +12,7 @@
     <section>
       <h1 style="font-size: xx-large; text-align: center; color: black;">
         Custom USB Pedal
-        </h1>
+      </h1>
       <button
         style="
           position: fixed;
@@ -28,7 +25,7 @@
       >
         Check for H/W
       </button>
-
+      <br>
       <button
         style="
           position: fixed;
@@ -43,7 +40,7 @@
       >
         Mapper
       </button>
-
+      <br>
       <button
         style="
           position: fixed;
@@ -58,8 +55,22 @@
       >
         Execute
       </button>
-    </section>
 
+      <span
+        id="mapped"
+        style="
+          position: fixed;
+          top: 70%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: black;
+          font-size: 20px;
+        "
+      >
+        No key mapped!
+      </span>
+    </section>
     <script src="index.js"></script>
+
   </body>
 </html>

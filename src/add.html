@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Key Mapper</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
@@ -17,11 +17,12 @@
         <br />
         and press a key.
       </p>
-
-      <button id="send" class="button is-small is-danger">
+      <br>
+      <button id="mapper" style="height:30px; width: 150px;" class="button is-success">
         Map this key!
       </button>
     </section>
+    <script src="add.js"></script>
   </body>
 
   <style>
@@ -40,7 +41,7 @@
 
     section {
       position: fixed;
-      top: 50%;
+      top: 40%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
@@ -48,12 +49,4 @@
       display: none;
     }
   </style>
-  <script>
-    document.addEventListener("keydown", function (event) {
-      console.log(event);
-
-      document.getElementById("keys").innerHTML = `
-    <b>key:</b> ${event.key}`;
-    });
-  </script>
 </html>
