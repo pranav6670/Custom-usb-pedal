@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
+    />
+  </head>
+
+  <body>
+    <section>
+      <p id="keys">
+        Click in here
+        <br />
+        and press a key.
+      </p>
+
+      <button id="send" class="button is-small is-danger">
+        Map this key!
+      </button>
+    </section>
+  </body>
+
+  <style>
+    * {
+      margin: auto;
+      padding: 0;
+      box-sizing: border-box;
+      overflow: auto;
+      font-family: courier, arial, helvetica, serif;
+    }
+
+    html {
+      background: beige;
+      font-size: 20px;
+    }
+
+    section {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  <script>
+    document.addEventListener("keydown", function (event) {
+      console.log(event);
+
+      document.getElementById("keys").innerHTML = `
+    <b>key:</b> ${event.key}`;
+    });
+  </script>
+</html>

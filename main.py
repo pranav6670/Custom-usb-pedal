@@ -2,14 +2,9 @@ import pyfirmata
 import time
 from pynput.keyboard import Key, Controller
 import serial.tools.list_ports
-import eel
-
-eel.init('web')
-# eel.start('index.html', size=(330, 300))
 
 keyboard = Controller()
 ports = list(serial.tools.list_ports.comports())
-
 
 def check_hw():
     arduino_ports = []
@@ -22,9 +17,8 @@ def check_hw():
     elif not arduino_ports:
         ack = 2
     else:
-        print("Dont come here")
+        print("Don't come here")
     return ack, arduino_ports
-
 
 def execute(board, pin):
     it = pyfirmata.util.Iterator(board)
@@ -46,7 +40,9 @@ def execute(board, pin):
 
 def go():
     ack, dev = check_hw()
+    print(dev[0].device)
     board = pyfirmata.Arduino(str(dev[0].device))
     execute(board, 7)
 
 
+go()
