@@ -55,16 +55,30 @@
           width: 112.8px;
         "
         id="exec"
+        onclick="on_exec()"
         class="button is-medium is-dark"
       >
         Execute
       </button>
 
       <span
-        id="mapped"
+        id="devstat"
         style="
           position: fixed;
           top: 70%;
+          left: 40%;
+          transform: translate(-50%, -50%);
+          color: black;
+          font-size: 20px;
+        "
+      >
+        Device status: No dev found!
+      </span>
+      <span
+        id="mapped"
+        style="
+          position: fixed;
+          top: 90%;
           left: 50%;
           transform: translate(-50%, -50%);
           color: black;
@@ -75,16 +89,5 @@
       </span>
     </section>
     <script src="index.js"></script>
-    <script>
-      function on_click() {
-        var five = require("johnny-five");
-        var board = new five.Board();
-
-        board.on("ready", function () {
-          var led = new five.Led(13);
-          led.blink(500);
-        });
-      }
-    </script>
   </body>
 </html>

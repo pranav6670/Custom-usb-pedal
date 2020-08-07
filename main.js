@@ -17,7 +17,7 @@ win = new BrowserWindow({
 win.loadFile('src/index.html') 
 
 // Open the DevTools. 
-win.webContents.openDevTools() 
+// win.webContents.openDevTools() 
 
 //Quit app when main BrowserWindow Instance is closed 
 win.on('closed', function () { 
