@@ -3,9 +3,11 @@
   padding: 0;
   box-sizing: border-box;
   overflow: auto;
-  font-family: courier, arial, helvetica, serif;
+  /* font-family: courier, arial, helvetica, serif; */
 }
-
+body {
+  font-family: 'Montserrat';
+}
 html {
   font-size: 10px;
 }
@@ -14,12 +16,19 @@ section {
   width: 100%;
   height: 100vh;
   background-size: 400% 400%;
-  background-image: linear-gradient(
+   /* background-image: linear-gradient(
     120deg,
     #4158d0 0%,
     #c850c0 50%,
     rgba(255, 145, 0, 1) 100%
-  );
+  );  */
+  background-image: linear-gradient(
+    240deg,
+    #FF8008 0%,
+    #FFC837 50%,
+    #DA22FF 100%
+  ); 
+  
   position: relative;
   animation: change 10s ease-in-out infinite;
 }

@@ -26,20 +26,40 @@ ipc.on("updateValue", function (event, arg) {
   mapped.innerHTML = "Mapped key is: " + arg;
 });
 
-function on_click() {
-  var check = document.getElementById("check");
-  check.innerHTML = "Checking..";
-  const { Board, Led } = require("johnny-five");
-  const board = new Board({
+
+function on_exec() {
+  var exec = document.getElementById('exec');
+  var stat = document.getElementById("devstat");
+  var status = document.getElementById('keystat');
+
+  exec.innerHTML = "Checking for device..."
+
+  var five = require("johnny-five"),
+    board,
+    button;
+
+  board = new five.Board({
     repl: false,
   });
 
-  var stat = document.getElementById("devstat");
-
-  board.on("ready", () => {
-    check.innerHTML = "Check for H/W";
+  board.on("ready", function () {
+    exec.innerHTML = "Running...";
     stat.innerHTML = "Device ready at" + "  " + board.port;
-    const led = new Led(13);
-    led.blink(500);
+
+    button = new five.Button(2);
+
+    button.on("down", function () {
+      status.innerHTML = "Down";
+    });
+
+    button.on("hold", function () {
+      status.innerHTML = "Hold";
+
+    });
+
+    button.on("up", function () {
+      status.innerHTML = "Up";
+
+    });
   });
 }
