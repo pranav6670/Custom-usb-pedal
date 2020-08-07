@@ -17,7 +17,7 @@ win = new BrowserWindow({
 win.loadFile('src/index.html') 
 
 // Open the DevTools. 
-// win.webContents.openDevTools() 
+win.webContents.openDevTools() 
 
 //Quit app when main BrowserWindow Instance is closed 
 win.on('closed', function () { 
@@ -46,6 +46,7 @@ if (BrowserWindow.getAllWindows().length === 0) {
 	createWindow() 
 } 
 }) 
+app.allowRendererProcessReuse = false
 
 ipcMain.on('update-value', function (event, arg) { 
   console.log(arg); 
