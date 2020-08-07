@@ -26,13 +26,12 @@ ipc.on("updateValue", function (event, arg) {
   mapped.innerHTML = "Mapped key is: " + arg;
 });
 
-
 function on_exec() {
-  var exec = document.getElementById('exec');
+  var exec = document.getElementById("exec");
   var stat = document.getElementById("devstat");
-  var status = document.getElementById('keystat');
+  var status = document.getElementById("keystat");
 
-  exec.innerHTML = "Checking for device..."
+  exec.innerHTML = "Checking for device...";
 
   var five = require("johnny-five"),
     board,
@@ -54,12 +53,10 @@ function on_exec() {
 
     button.on("hold", function () {
       status.innerHTML = "Hold";
-
     });
 
     button.on("up", function () {
       status.innerHTML = "Up";
-
     });
   });
 }

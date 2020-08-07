@@ -8,7 +8,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
     />
-    <link href='https://fonts.googleapis.com/css?family=Montserrat'' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat''
+    rel='stylesheet'>
 
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -24,11 +25,12 @@
           top: 25%;
           left: 50%;
           transform: translate(-50%, -50%);
-          height: 31.25px;
-          width: 112.8px;
+          height: 40px;
+          width: 115px;
+          font-size: large;
         "
         id="map"
-        class="button is-medium is-warning"
+        class="button is-warning"
       >
         Mapper
       </button>
@@ -39,8 +41,9 @@
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          height: 31.25px;
+          height: 40px;
           width: 150px;
+          font-size: large;
         "
         id="exec"
         onclick="on_exec()"
@@ -76,14 +79,18 @@
         No key mapped!
       </span>
 
-      <h1 style="position: fixed;
-      top: 80%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: black;
-      font-size: 20px;"
-      >Status: 
-    </h1>
+      <h1
+        style="
+          position: fixed;
+          top: 80%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: black;
+          font-size: 20px;
+        "
+      >
+        Status:
+      </h1>
 
       <span
         id="keystat"

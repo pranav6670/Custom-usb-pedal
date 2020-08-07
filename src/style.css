@@ -6,33 +6,28 @@
   /* font-family: courier, arial, helvetica, serif; */
 }
 body {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
 }
 html {
   font-size: 10px;
+}
+button {
+  font-family: "Montserrat";
 }
 
 section {
   width: 100%;
   height: 100vh;
   background-size: 400% 400%;
-   /* background-image: linear-gradient(
-    120deg,
+  background-image: linear-gradient(
+    240deg,
     #4158d0 0%,
     #c850c0 50%,
     rgba(255, 145, 0, 1) 100%
-  );  */
-  background-image: linear-gradient(
-    240deg,
-    #FF8008 0%,
-    #FFC837 50%,
-    #DA22FF 100%
-  ); 
-  
+  );
   position: relative;
   animation: change 10s ease-in-out infinite;
 }
-
 
 @keyframes change {
   0% {
