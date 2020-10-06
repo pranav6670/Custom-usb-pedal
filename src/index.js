@@ -1,5 +1,6 @@
 const electron = require("electron");
 const path = require("path");
+const { TIMEOUT } = require("dns");
 const BrowserWindow = electron.remote.BrowserWindow;
 const ipc = electron.ipcRenderer;
 
@@ -41,22 +42,28 @@ function on_exec() {
     repl: false,
   });
 
+  board.on("fail", function(event) {
+    stat.innerHTML = "Device not found!";
+    exec.innerHTML = "Recheck..";
+  });
+
   board.on("ready", function () {
     exec.innerHTML = "Running...";
     stat.innerHTML = "Device ready at" + "  " + board.port;
 
-    button = new five.Button(2);
+    button = new five.Button(3);
 
     button.on("down", function () {
       status.innerHTML = "Down";
     });
 
     button.on("hold", function () {
-      status.innerHTML = "Hold";
+      status.innerHTML = "Hold";  
     });
 
     button.on("up", function () {
       status.innerHTML = "Up";
     });
   });
+
 }

@@ -40,3 +40,4 @@ ipcMain.on("update-value", function (event, arg) {
   console.log(arg);
   win.webContents.send("updateValue", arg);
 });
+
